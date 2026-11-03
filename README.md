@@ -13,6 +13,12 @@ OpenHUTB 简单来说是面向人机共生与智能载具研究、教学和开�
 - **仿真与验证**：在可重复的场景中开发、训练和验证算法。
 - **场景与内容开发**：使用开放的城镇、建筑、车辆、行人和道具资产创建仿真环境。
 
+## 文档维护方向
+
+- 持续核对安装教程中的系统版本、依赖和操作入口，减少照着旧截图操作却找不到选项的情况。
+- 完善模拟器和研究项目之间的链接说明，让读者能从概览页继续找到安装资料、API 和示例。
+- 补充实验记录中的数据来源、运行条件和评价指标，方便他人理解结果并复查过程。
+
 核心入口
 
 - 🟡 **[hutb 人车模拟器](https://github.com/OpenHUTB/hutb)** — 提供下载工具、Python API 和交通生成示例，目前持续开发中。
@@ -48,74 +54,3 @@ graph LR
     A --> F[<a href='https://github.com/MyoHub/myoconverter'>格式转换</a> <a href='https://github.com/OpenHUTB/mujoco_plugin'>mujoco_plugin</a> ]
     F --> C
     C --> D[文档 <a href='https://github.com/OpenHUTB/doc'>doc</a>]
-    D --> H[无人机文档 <a href='https://github.com/OpenHUTB/air_doc'>air_doc</a>]
-    D --> I[神经原理 <a href='https://github.com/OpenHUTB/neuro'>neuro</a>]
-    I --> J[规划 <a href='https://github.com/OpenHUTB/PFC'>PFC</a>]
-    I --> K[控制原理 <a href='https://github.com/OpenHUTB/move'>move</a>]
-    K --> A
-    L[模拟引擎 <a href='https://github.com/OpenHUTB/engine'>engine</a>] --> C
-    L --> M[引擎文档 <a href='https://github.com/OpenHUTB/engine_doc'>engine_doc</a>]
-    M --> S[C++ 文档 <a href='https://github.com/OpenHUTB/cpp'>cpp</a>]
-    D --> M
-    L --> N[无人机模拟器 <a href='https://github.com/OpenHUTB/air'>air</a>]
-    N --> C
-    N --> H
-    D --> R[<a href='https://github.com/OpenHUTB/.github/blob/master/README.md#%E5%BA%94%E7%94%A8%E5%88%97%E8%A1%A8'>应用列表</a>]
-    D --> Q[<a href='https://github.com/OpenHUTB/.github/blob/master/README.md#%E5%B7%A5%E5%85%B7%E5%88%97%E8%A1%A8'>工具列表</a>]
-
-
-    style I fill:#e1f5fe
-    style C fill:#ccffcc
-    style D fill:#fff3e0
-    style Q fill:#f3e5f5
-    style R fill:#F5DEB3
-```
-
-
-
-### 应用列表
-
-```mermaid
-graph LR
-
-    A --> F[人的移动 <a href='https://github.com/OpenHUTB/locomotion'>locomotion</a>]
-    F --> L[人的模拟 <a href='https://github.com/OpenHUTB/carla-pedestrians'>carla-pedestrians</a>]
-
-    A --> G[自动驾驶测试 <a href='https://github.com/OpenHUTB/platform'>platform</a>]
-    G --> H[强化学习 <a href='https://github.com/OpenHUTB/carla_rl'>carla_rl</a>]
-    H --> K[<a href='https://github.com/OpenHUTB/Carla_Autonomous_Driving'>Carla_Autonomous_Driving</a>]
-    H --> I[模仿学习 <a href='https://github.com/OpenHUTB/carla-roach'>carla-roach</a>]
-    H --> J[多视角 <a href='https://github.com/OpenHUTB/CILv2_multiview'>CILv2_multiview</a>]
-    G --> M[安全场景生成 <a href='https://github.com/OpenHUTB/ChatScene'>ChatScene</a>]
-
-    A[应用列表] --> B[智慧交通 <a href='https://github.com/OpenHUTB/intelligent_traffic/'>intelligent_traffic</a>]
-    B --> C[交通孪生 <a href='https://github.com/OpenHUTB/traffic_twin/'>traffic_twin</a>]
-    C --> N[轨迹跟踪 <a href='https://github.com/OpenHUTB/Self_Driving_Car_Trajectory_Tracking'>Trajectory_Tracking</a>]
-    B --> D[模拟端 <a href='https://github.com/OpenHUTB/driving/'>driving</a> ]
-    O --> E[交通大模型 <a href='https://github.com/OpenHUTB/traffic_llm'>traffic_llm</a>]
-    B --> O[模型上下文协议 <a href='https://github.com/OpenHUTB/mcp'>mcp</a>]
-
-    style A fill:#F5DEB3
-```
-
-
-### 工具列表
-
-```mermaid
-graph LR
-    A[工具列表] --> B[<a href='https://github.com/OpenHUTB/latex'>latex</a> 模板]
-    B --> C[课程设计 <a href='https://github.com/OpenHUTB/course'>course</a>]
-    B --> D[研究生论文 <a href='https://github.com/OpenHUTB/master'>master</a>]
-    B --> E[本科毕设 <a href='https://github.com/OpenHUTB/undergraduate'>undergraduate</a>]
-    E --> M[<a href='https://github.com/OpenHUTB/powerpoint2pdf'>sim</a>]
-    D --> N[<a href='https://github.com/OpenHUTB/emotion'>emotion</a>]
-    G --> F[<a href='https://github.com/OpenHUTB/powerpoint2pdf'>powerpoint2pdf</a>]
-    A --> G[工具脚本 <a href='https://github.com/OpenHUTB/utils'>utils</a>]
-    A --> V[<a href='https://github.com/OpenHUTB/vsc'>vsc</a> 代码补全插件]
-    G --> O[文档生成 <a href='https://github.com/OpenHUTB/mkdocs'>mkdocs</a>]
-    G --> H[<a href='https://github.com/OpenHUTB/matlab'>matlab</a>]
-    A --> K[<a href='https://github.com/OpenHUTB/ros'>ros</a>]
-    K --> L[<a href='https://github.com/OpenHUTB/ros-bridge'>ros-bridge</a>]
-
-    style A fill:#f3e5f5
-```
