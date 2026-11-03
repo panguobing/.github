@@ -37,41 +37,21 @@ sudo apt update && sudo apt upgrade
 以下命令在 Windows PowerShell 中执行。先用 `wsl --list --verbose` 查看准确名称，下面以 `Ubuntu-20.04` 为例：
 
 ```powershell
+
+## 安装后核对发行版状态
+
+在 Windows PowerShell 或命令提示符中查看已安装的发行版及其 WSL 版本：
+
+```powershell
 wsl --list --verbose
-wsl --terminate Ubuntu-20.04
-New-Item -ItemType Directory -Force 'D:\WSL-Backup'
-wsl --export Ubuntu-20.04 'D:\WSL-Backup\Ubuntu-20.04.tar'
+wsl --status
+wsl --version
 ```
 
-确认导出命令成功结束，再检查备份文件不是空文件。备份路径应放在原发行版之外，并按电脑上的实际盘符修改：
+在列表中确认目标发行版名称，并查看 `VERSION` 列。若项目需要 WSL 2，而发行版显示为 1，可先备份重要文件，再按需转换：
 
 ```powershell
-Get-Item -LiteralPath 'D:\WSL-Backup\Ubuntu-20.04.tar' | Select-Object FullName, Length
+wsl --set-version Ubuntu-20.04 2
 ```
 
-重要环境可先导入成另一个名称，验证能启动并查看需要保留的文件。为新副本选择尚未使用的发行版名称和空目录，并预留足够空间：
-
-```powershell
-New-Item -ItemType Directory -Force 'D:\WSL\Ubuntu-Backup'
-wsl --import Ubuntu-Backup 'D:\WSL\Ubuntu-Backup' 'D:\WSL-Backup\Ubuntu-20.04.tar' --version 2
-wsl -d Ubuntu-Backup
-```
-
-进入后核对 `/home` 中的项目、配置和数据，完成检查后输入 `exit` 返回 PowerShell。导入的发行版通常默认以 `root` 登录，不代表原用户的文件丢失；恢复默认用户的方法见[微软的导入说明](https://learn.microsoft.com/zh-cn/windows/wsl/use-custom-distro#add-wsl-specific-components-like-a-default-user)。
-
-### 2. 彻底清除 WSL
-
-确认所需文件已有可用备份后，再逐个注销实际要删除的发行版。名称应来自 `wsl --list --verbose`，不要照抄其他机器的名称：
-
-```powershell
-wsl --unregister <发行版名>
-```
-
-第二步：卸载 WSL 组件
-
-```powershell
-wsl --uninstall
-```
-注意：wsl --uninstall 需要 Microsoft Store 版 WSL 2.0 及以上。如果提示没有该命令，可在「设置 → 应用 → 安装的应用」中先卸载对应的 Linux 发行版，再卸载「适用于 Linux 的 Windows 子系统」组件，然后重启电脑。
-
-备份、恢复和注销命令可参考[微软 WSL 基本命令](https://learn.microsoft.com/zh-cn/windows/wsl/basic-commands)。
+`wsl --update` 更新 WSL 组件；进入 Ubuntu 后运行 `sudo apt update && sudo apt upgrade` 更新 Linux 软件包。这两项更新针对不同部分。更多命令见[微软 WSL 基本命令](https://learn.microsoft.com/zh-cn/windows/wsl/basic-commands)。
