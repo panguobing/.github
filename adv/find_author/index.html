@@ -6,13 +6,13 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://openhutb.github.io/.github/adv/find_author/" rel="canonical"/>
 <link href="../../img/favicon.ico" rel="shortcut icon"/>
-<title>寻找社区技术文档所对应的作者和源码 - 社区介绍</title>
+<title>查找文档作者与源码 - 社区介绍</title>
 <link href="../../css/theme.css" rel="stylesheet"/>
 <link href="../../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "\u5bfb\u627e\u793e\u533a\u6280\u672f\u6587\u6863\u6240\u5bf9\u5e94\u7684\u4f5c\u8005\u548c\u6e90\u7801";
+        var mkdocs_page_name = "\u67e5\u627e\u6587\u6863\u4f5c\u8005\u4e0e\u6e90\u7801";
         var mkdocs_page_input_path = "adv/find_author.md";
         var mkdocs_page_url = "/.github/adv/find_author/";
       </script>
@@ -76,7 +76,7 @@
 </li>
 </ul>
 <p class="caption"><span class="caption-text">贡献相关</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../codespace/">基于浏览器的贡献指南</a>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../dev/sign_up/">注册 Github 账号</a>
@@ -97,6 +97,20 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../submit/">文档修改指南</a>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../video_editing/">视频制作流程</a>
+</li>
+<li class="toctree-l1 current"><a class="reference internal current" href="./">查找文档作者与源码</a>
+<ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="#寻找页面的作者">寻找页面的作者</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#用脚本一次看完可选">用脚本一次看完（可选）</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#寻找页面的源代码">寻找页面的源代码</a>
+</li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">工具与资源</span></p>
 <ul>
@@ -105,6 +119,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../blender/">三维建模软件 Blender 介绍</a>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../markdown2anything/">Markdown 一键发布到社交平台</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Minecraft%20Java%20Edition%20Downgrade%20Guide/">Java 版 Minecraft 回退旧版本指南</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../src/python/">Python 论文绘图脚本</a>
 </li>
 </ul>
 <p class="caption"><span class="caption-text">学习与论文</span></p>
@@ -132,7 +150,8 @@
 <div class="rst-content"><div aria-label="breadcrumbs navigation" role="navigation">
 <ul class="wy-breadcrumbs">
 <li><a aria-label="Docs" class="icon icon-home" href="../.."></a></li>
-<li class="breadcrumb-item active">寻找社区技术文档所对应的作者和源码</li>
+<li class="breadcrumb-item">贡献相关</li>
+<li class="breadcrumb-item active">查找文档作者与源码</li>
 <li class="wy-breadcrumbs-aside">
 <a class="icon icon-github" href="https://github.com/OpenHUTB/.github/edit/master/docs/adv/find_author.md"> Edit on GitHub</a>
 </li>
@@ -148,31 +167,58 @@
 <p><img alt="" src="../../img/adv/full_article.png"/></p>
 <p>然后，点击页面右上角的“编辑页面”，</p>
 <p><img alt="" src="../../img/adv/edit_page.png"/></p>
-<p>将跳转到 github 仓库的代码编辑页面，点击它所在的文件夹：</p>
+<p>将跳转到 GitHub 仓库的代码编辑页面。先确认页面显示的仓库名称，再点击文件路径中的文件夹：</p>
 <p><img alt="" src="../../img/adv/edit_tool.png"/></p>
-<p>点击上一步绿色框中的文件名（即页面所对应的 .md 文件）</p>
+<p>点击上一步绿色框中的文件名（即页面所对应的 .md 文件）。</p>
 <p><img alt="" src="../../img/adv/file_edited.png"/></p>
-<p>点击页面右上角的<code>History</code></p>
+<p>点击页面右上角的 <code>History</code>：</p>
 <p><img alt="" src="../../img/adv/click_history.png"/></p>
-<p>将显示编辑过该页面的所有用户名（可能有多个）</p>
+<p>历史记录会显示编辑过该页面的用户名和对应提交；同一页面可能由多人维护。</p>
+<h3 id="用脚本一次看完可选">用脚本一次看完（可选）</h3>
+<p>上面的 History 步骤也可以交给仓库里的脚本，它会把「最近几次提交、作者、GitHub 链接」一次打印出来：</p>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>src/find_author.py<span class="w"> </span>docs/adv/find_author.md<span class="w">          </span><span class="c1"># 仓库相对路径</span>
+python<span class="w"> </span>src/find_author.py<span class="w"> </span>/adv/find_author/<span class="w">                </span><span class="c1"># 站点路径也可以</span>
+python<span class="w"> </span>src/find_author.py<span class="w"> </span>docs/adv/find_author.md<span class="w"> </span>--limit<span class="w"> </span><span class="m">10</span><span class="w"> </span>--json<span class="w">   </span><span class="c1"># 机器可读</span>
+</code></pre></div>
+<p>本仓库的实际输出：</p>
+<div class="highlight"><pre><span></span><code>文件: docs/adv/find_author.md
+
+最近 3 次提交:
+  9cb799a  2026-11-10  xy18574557330  docs: 修正寻找作者页面把文件路径写成“目录”的表述
+  3cdb3f6  2026-10-28  DZ-djhy        删除「寻找作者和源码」页里失效的截图引用复制 (#373)
+  bae8165  2026-10-25  donghaiwang    修复文字描述
+
+作者（按提交数）: xy18574557330 (1), DZ-djhy (1), donghaiwang (1)
+
+在浏览器中查看: https://github.com/OpenHUTB/.github/commits/master/docs/adv/find_author.md
+逐行看是谁改的: https://github.com/OpenHUTB/.github/blame/master/docs/adv/find_author.md
+</code></pre></div>
 <h2 id="寻找页面的源代码">寻找页面的源代码</h2>
-<p>以同一篇文章为例，从上面的“编辑页面”记下文档所在目录 docs/water/rov_trajectory_tracking.md，点击仓库名进入仓库首页</p>
+<p>以同一篇文章为例，从“编辑页面”记下文档所在仓库和文件路径，例如 <code>docs/water/rov_trajectory_tracking.md</code>。文档路径不能直接说明程序代码所在目录，不同项目的组织方式可能不同。</p>
+<p>返回对应仓库首页后，可以先查看 <code>src</code> 目录，再结合文档中的模块名称、仓库链接和页面历史记录定位相关代码。</p>
 <p><img alt="" src="../../img/adv/click_index.png"/></p>
-<p>代码位于 src 目录下和文档相同的目录</p>
+<p>该示例对应模块位于 <code>src/water/rov_mujoco</code>：</p>
 <p><img alt="" src="../../img/adv/src_directory.png"/></p>
-<p>该模块位于 src/water/rov_mujoco</p>
 <p><img alt="" src="../../img/adv/src_location.png"/></p>
-<p>最后一个目录可能有微小差别，具体请看上面提交历史（<code>History</code>）页面的详细信息。</p></div>
+<p>如果没有找到同名目录，可查看页面链接指向的项目和提交历史，确认文档与程序代码之间的关系。</p>
+<hr/>
+<blockquote>
+<p>本页最近一次修改：2026-11-15 · 盘国兵 · 提交 <a href="https://github.com/OpenHUTB/.github/commit/8b250ed"><code>8b250ed</code></a></p>
+</blockquote></div>
 </div>
 </div><footer>
-<hr/>
+<div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral float-left" href="../../video_editing/" title="视频制作流程"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+<a class="btn btn-neutral float-right" href="../../tools/" title="开源工具列表">Next <span class="icon icon-circle-arrow-right"></span></a>
+</div>
+<hr>
 <div role="contentinfo">
 <!-- Copyright etc -->
 <p>OpenHUTB 版权所有 © 2026</p>
 </div>
 
   Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
+</hr></footer>
 </div>
 </div>
 </section>
@@ -182,6 +228,8 @@
 <span>
 <a class="fa fa-github" href="https://github.com/OpenHUTB/.github" style="color: #fcfcfc"> GitHub</a>
 </span>
+<span><a href="../../video_editing/" style="color: #fcfcfc">« Previous</a></span>
+<span><a href="../../tools/" style="color: #fcfcfc">Next »</a></span>
 </span>
 </div>
 <script src="../../js/jquery-3.6.0.min.js"></script>

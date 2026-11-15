@@ -183,6 +183,10 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../submit/">文档修改指南</a>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../video_editing/">视频制作流程</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../adv/find_author/">查找文档作者与源码</a>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">工具与资源</span></p>
 <ul>
@@ -191,6 +195,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../blender/">三维建模软件 Blender 介绍</a>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../markdown2anything/">Markdown 一键发布到社交平台</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Minecraft%20Java%20Edition%20Downgrade%20Guide/">Java 版 Minecraft 回退旧版本指南</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../src/python/">Python 论文绘图脚本</a>
 </li>
 </ul>
 <p class="caption"><span class="caption-text">学习与论文</span></p>
@@ -295,7 +303,7 @@
 <p>提交日志和截图前，先删掉密码、访问令牌、私有地址、邮箱验证码以及其他不应公开的内容。若问题只在本机路径或账号配置中出现，可以把路径和名称改成示例值，但要保留目录层级、命令和错误位置等有助于判断的信息。这样既保护隐私，也不会让排查失去关键线索。</p>
 <p>如果问题涉及多个仓库，请分别写出仓库名称、分支和相互关系；如果是网络或安装问题，再补充网络环境、软件版本和失败发生在哪一步。一个能被别人按原步骤复现的问题，通常比一段很长但没有环境信息的描述更容易得到有效回复。</p>
 <h2 id="简介">简介 <span id="introduction"></span></h2>
-<p>在开源的世界里，你所提技术问题的解答的好坏, 很大程度上取决于你提问的方式与此问题的难度。本指南将描述如何正确地提问以获得你满意的答案。</p>
+<p>在开源世界中，你提出的技术问题能否获得高质量解答，很大程度取决于你的提问方式以及问题本身的复杂程度。本指南将介绍如何正确提问，帮你得到满意的答复。</p>
 <p>现在开源（Open Source）软件已经相当盛行，您通常可以从其他更有经验的用户那里获得好的答案，这是件好事；用户们往往对那些新手常遇到的问题更宽容一些。尽管如此，以我们在此推荐的方式对待这些有经验的用户通常也是从他们那里获得有用答案的最有效方式。</p>
 <p>首先你应该明白，开源爱好者喜爱有趣的问题，或者能激发他们思维的好问题。如果你给了开源社区一个值得反复咀嚼玩味的好问题，开源社区自会对你感激不尽。好问题是激励，是厚礼。好问题可以提高大家的理解力，而且通常会暴露大家以前从没意识到或者思考过的问题。对开源社区而言，“好问题！”是诚挚的大力称赞。</p>
 <p>尽管如此，或许技术大佬们有着蔑视或傲慢面对简单问题的坏名声，这有时让开源社区看起来对新手、无知者似乎较有敌意，但其实不是那样的。</p>
@@ -320,7 +328,7 @@
 <p>运用某些策略，比如先用 Google 搜索你所遇到的各种错误信息（搜索 <a href="http://groups.google.com/">Google 论坛</a>和网页），这样很可能直接就找到了能解决问题的文件或邮件列表线索。即使没有结果，在邮件列表或新闻组寻求帮助时加上一句 <code>我在 Google 中搜过下列句子但没有找到什么有用的东西</code> 也是件好事，即使它只是表明了搜索引擎不能提供哪些帮助。这么做（加上搜索过的字串）也让遇到相似问题的其他人能被搜索引擎引导到你的提问来。</p>
 <p>别着急，不要指望几秒钟的 Google 搜索就能解决一个复杂的问题。在向开源社区求助之前，再阅读一下常见问题文件（FAQ）、放轻松、坐得舒服一些，再花点时间思考一下这个问题。相信开源社区，他们能从你的提问看出你做了多少阅读与思考，如果你是有备而来，将更有可能得到解答。不要将所有问题一股脑拋出，只因你的第一次搜索没有找到答案（或者找到太多答案）。</p>
 <p>准备好你的问题，再将问题仔细地思考过一遍，因为草率的发问只能得到草率的回答，或者根本得不到任何答案。越是能表现出在寻求帮助前你为解决问题所付出的努力，你越有可能得到实质性的帮助。</p>
-<p>绝不要自以为<strong>够格</strong>得到答案，你没有；你并没有。毕竟你没有为这种服务支付任何报酬。你将会是自己去<strong>挣到</strong>一个答案，靠提出有内涵的、有趣的、有思维激励作用的问题 —— 一个有潜力能贡献社区经验的问题，而不仅仅是被动地从他人处索取知识。</p>
+<p>绝不要自以为<strong>够格</strong>得到答案，实际上，你并没有。毕竟你没有为这种服务支付任何报酬。你将会是自己去<strong>挣到</strong>一个答案，靠提出有内涵的、有趣的、有思维激励作用的问题 —— 一个有潜力能贡献社区经验的问题，而不仅仅是被动地从他人处索取知识。</p>
 <p>另一方面，表明你愿意在找答案的过程中做点什么是一个非常好的开端。<code>谁能给点提示？</code>、<code>我的这个例子里缺了什么？</code>以及<code>我应该检查什么地方</code>比<code>请把我需要的确切的过程贴出来</code>更容易得到答复。因为你表现出只要有人能指个正确方向，你就有完成它的能力和决心。</p>
 <h2 id="当你提问时">当你提问时</h2>
 <h3 id="慎选提问的论坛">慎选提问的论坛</h3>
@@ -703,7 +711,11 @@ I'll be glad to translate responses, if you only use one or the other.</p>
 <h2 id="鸣谢">鸣谢</h2>
 <ul>
 <li><a href="https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way">提问的智慧</a></li>
-</ul></div>
+</ul>
+<hr/>
+<blockquote>
+<p>本页最近一次修改：2026-11-10 · zheng395 · 提交 <a href="https://github.com/OpenHUTB/.github/commit/7a5b3c5"><code>7a5b3c5</code></a></p>
+</blockquote></div>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">

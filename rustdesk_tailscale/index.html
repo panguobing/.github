@@ -125,6 +125,10 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../submit/">文档修改指南</a>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../video_editing/">视频制作流程</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../adv/find_author/">查找文档作者与源码</a>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">工具与资源</span></p>
 <ul>
@@ -133,6 +137,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../blender/">三维建模软件 Blender 介绍</a>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../markdown2anything/">Markdown 一键发布到社交平台</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Minecraft%20Java%20Edition%20Downgrade%20Guide/">Java 版 Minecraft 回退旧版本指南</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../src/python/">Python 论文绘图脚本</a>
 </li>
 </ul>
 <p class="caption"><span class="caption-text">学习与论文</span></p>
@@ -185,15 +193,13 @@
 可以将key设置成永久，防止过段时间需要重新登录）
  <img alt="" src="../img/rustdesk/disable_key_expiry.png"/></li>
 </ul>
-<blockquote>
 <p>启动软件后会点击<code>sign in to your network</code>
 <img alt="" src="../img/rustdesk/sign_in_network.png"/></p>
-<p>以 github 授权使用为例
+<p>以 GitHub 授权使用为例
  <img alt="" src="../img/rustdesk/sign_in_github.png"/>
 <img alt="" src="../img/rustdesk/authorize_tailscale.png"/></p>
 <p>提示登录成功后，点击<code>visit the console</code>访问控制台，就可以看到已加入虚拟局域网的设备列表
 <img alt="" src="../img/rustdesk/login_successful.png"/></p>
-</blockquote>
 <h2 id="2-rustdesk配置与连接">2. RustDesk配置与连接</h2>
 <ul>
 <li>
@@ -211,7 +217,7 @@
 <p>如果连接时报错：<code>连接错误 Failed to connect to 100.*.*.*:21118:请稍后再试</code>，确认被控端下面是否有“服务未运行”的提示，如果有请点击“启动服务”，然后再次连接即可。额外排查：确认被控端防火墙没有拦截 TCP 21118 端口。</p>
 </div>
 <h2 id="附windows远程登录">附：Windows远程登录</h2>
-<p>先确认被控机的 Windows 版本：打开“设置 → 系统 → 系统信息”，查看 Windows 版本。Windows 专业版、企业版和教育版可以接受内置远程桌面连接；家庭版可以连接其他电脑，但不能作为这种连接的被控端。家庭版被控机可使用前面的 RustDesk 方式。</p>
+<p>先确认被控电脑的 Windows 版本：打开 <code>设置 → 系统 → 系统信息</code>，查看系统版本。Windows 专业版、企业版、教育版原生支持作为内置远程桌面（RDP）的被控端；家庭版可以主动连接其他电脑，但无法作为内置远程桌面的被控端。如果被控电脑是家庭版，可以使用前文介绍的 RustDesk 方案。</p>
 <p>在支持的被控机上，打开“设置 → 系统 → 远程桌面”并启用连接。确认两台设备都已接入 Tailscale，且被控机保持开机、联网，没有进入睡眠状态。</p>
 <p><img alt="" src="../img/rustdesk/enable_remote.png"/></p>
 <p>在本地电脑打开<code>远程桌面连接</code>，输入被控机的 Tailscale IP 地址，再使用被控机上有远程登录权限的 Windows 账户和密码登录。这里使用账户密码，不是平时解锁电脑时输入的 Windows Hello PIN。图中的 <code>*</code> 需要替换为实际 IP 地址。
@@ -223,7 +229,7 @@
 <h2 id="高级操作">高级操作</h2>
 <h3 id="邀请其他成员进入虚拟局域网">邀请其他成员进入虚拟局域网</h3>
 <p><img alt="" src="../img/rustdesk/invite_external_user.png"/></p>
-<p>服务器所在的是<strong>个人 tailnet</strong>，不能直接"加成员"，正规做法是<strong>节点共享</strong>。</p>
+<p>如果只想共享这一台设备、不想让对方加入你的整个 tailnet，用 Tailscale 的「节点共享」功能。</p>
 <p><strong>使用tailscale共享具体步骤</strong></p>
 <p><strong>共享方操作</strong></p>
 <ol>
@@ -234,7 +240,7 @@
 <p><img alt="" src="../img/rustdesk/copylink.png"/></p>
 <p><strong>接收方操作</strong></p>
 <ol>
-<li>使用github账号登录并打开<a href="https://login.tailscale.com/admin/invitations">链接</a>（或注册邮箱里的邀请邮件），<strong>接受</strong>这台共享设备</li>
+<li>使用GitHub账号登录并打开<a href="https://login.tailscale.com/admin/invitations">链接</a>（或注册邮箱里的邀请邮件），<strong>接受</strong>这台共享设备</li>
 <li>接受后在 admin/machines 里即可看到该设备，用  服务器ip地址  访问</li>
 </ol>
 <p><img alt="" src="../img/rustdesk/Share%20successful.png"/></p>
@@ -283,21 +289,25 @@ sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class=
 <li><a href="https://github.com/rustdesk/rustdesk">rustdesk 源代码仓库</a></li>
 <li><a href="https://learn.microsoft.com/zh-cn/windows-server/remote/remote-desktop-services/remotepc/remote-desktop-allow-access">微软：启用远程桌面的条件与设置</a></li>
 <li><a href="https://www.cnblogs.com/lefour/p/18866579">使用 Tailscale 实现内网穿透+RDP远程控制</a></li>
-</ul></div>
+</ul>
+<hr/>
+<blockquote>
+<p>本页最近一次修改：2026-11-10 · IPAR22 · 提交 <a href="https://github.com/OpenHUTB/.github/commit/e8be6ce"><code>e8be6ce</code></a></p>
+</blockquote></div>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
 <a class="btn btn-neutral float-left" href="../env_conf/" title="搭建自定义开发环境"><span class="icon icon-circle-arrow-left"></span> Previous</a>
 <a class="btn btn-neutral float-right" href="../ask_question/" title="提问技巧">Next <span class="icon icon-circle-arrow-right"></span></a>
 </div>
-<hr/>
+<hr>
 <div role="contentinfo">
 <!-- Copyright etc -->
 <p>OpenHUTB 版权所有 © 2026</p>
 </div>
 
   Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
+</hr></footer>
 </div>
 </div>
 </section>
