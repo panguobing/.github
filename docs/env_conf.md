@@ -32,11 +32,13 @@
           - '1043:1443'    #https
           - '1022:22'      #ssh
         volumes: # 挂载卷
-        # 前面是Windows的地址所以斜杠向右；后面是Linux的地址所以向左
-          - C:\docker\gitlab\config:/etc/gitlab
-          - C:\docker\gitlab\data:/var/opt/gitlab
-          - C:\docker\gitlab\logs:/var/log/gitlab
+        # 冒号前是相对于 docker-compose.yml 所在目录的宿主机路径，冒号后是容器内路径
+          - ./gitlab/config:/etc/gitlab
+          - ./gitlab/data:/var/opt/gitlab
+          - ./gitlab/logs:/var/log/gitlab
     ```
+
+`./gitlab/config` 等相对路径以 `docker-compose.yml` 所在目录为基准。例如，该文件在 `D:\docker` 时，配置目录解析为 `D:\docker\gitlab\config`，数据和日志目录也位于同一 `gitlab` 目录。启动前用 `docker compose config` 检查 `volumes` 的 `source` 是否指向实际创建的目录，规则见 [Docker Compose 挂载说明](https://docs.docker.com/reference/compose-file/services/#volumes)。
 
 先核对示例中的地址与端口：
 
@@ -205,7 +207,7 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned
 
 1. 在 VS Code 扩展商店安装 **Python** 扩展（搜索 `Python`，发布者为 Microsoft）。
 2. 按 `Ctrl+Shift+P`，输入 `Python: Select Interpreter`，选择路径中带 `.venv` 的那一项。
-3. 新建终端（菜单「终端 → 新建终端」）会自动激活虚拟环境，命令行前同样出现 `(.venv)`。**这一步不做，VS Code 仍会用系统 Python 运行代码**，于是出现「终端里 import 成功、点运行却报错」这类看似玄学的问题。
+3. 新建终端（菜单「终端 → 新建终端」）会自动激活虚拟环境，命令行前同样出现 `(.venv)`。**如果跳过该步骤，VS Code 可能仍使用系统 Python 执行代码，造成“终端导入成功，但点击运行报错”的现象。
 
 ### 6. 安装常用库并验证
 
@@ -232,7 +234,7 @@ python -c "import numpy, pandas, sklearn, matplotlib; print('ok')"
 | pip 下载极慢或 `Read timed out` | 连的是境外官方源 | 配置镜像源（第 3 步） |
 | PowerShell 提示禁止运行脚本 | 执行策略限制 | 直接调用 `.venv\Scripts\python.exe`，或使用第 4 步的当前窗口设置 |
 | 终端能 import，VS Code 运行却报 `ModuleNotFoundError` | 编辑器选中的解释器不是装包的那个 | `Ctrl+Shift+P` → `Python: Select Interpreter` 改选 `.venv` |
-| `python -m venv` 报 ensurepip 失败 | Python 安装不完整 | 重新运行安装包修复；Linux 上需先 `apt install python3-venv` |
+| `python -m venv` 报 ensurepip 失败 | Python 安装不完整 | 重新运行安装包，选择 `Repair` 修复；若问题依旧，卸载后重新安装 |
 | pip 提示版本过旧 | 安装包自带的 pip 较老 | `python -m pip install --upgrade pip` |
 
 ### 8. 保存依赖并在新环境中重建
